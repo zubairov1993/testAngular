@@ -1,0 +1,34 @@
+<div class="page-list">
+  <div class="page-list__items">
+    <div class="wrapper">
+      <h1>SpaceX Ships</h1>
+      <app-page-item
+        *ngFor="let user of pageOfItems"
+        [title]="user.title"
+        [email]="user.email"
+        [phone]="user.phone"
+      ></app-page-item>
+      <app-pagination
+        [items]="
+          users
+            | pipeSearch: arg1:arg2:arg3
+            | pipeTitle: searchTitle
+            | pipeType: searchType
+        "
+        (changePage)="onChangePage($event)"
+      ></app-pagination>
+    </div>
+  </div>
+  <div class="page-list__filter">
+    <div class="wrapper">
+      <h2>Фильтры</h2>
+      <input type="text" [(ngModel)]="searchTitle" />
+      <app-multiselect (shareCheckedList)="shareCheckedList($event)">
+      </app-multiselect>
+      <app-checkbox
+        [options]="userRoles"
+        (toggle)="onRolesChange($event)"
+      ></app-checkbox>
+    </div>
+  </div>
+</div>

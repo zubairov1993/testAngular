@@ -1,0 +1,51 @@
+.page-item {
+  height: 106px;
+  border-bottom: 1px solid #a5a5a5;
+  margin-bottom: 40px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      font-family: Roboto;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    i {
+      padding-left: 23px;
+      color: #2962ff;
+    }
+  }
+
+  &__content {
+    display: flex;
+    padding-top: 29px;
+
+    &_type {
+      display: flex;
+      justify-content: space-between;
+      width: 25%;
+    }
+
+    &_port {
+      display: flex;
+      justify-content: space-between;
+      width: 25%;
+      padding-left: 20%;
+    }
+  }
+
+  a {
+    color: #2962ff;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 16px;
+  }
+
+  p {
+    font-weight: normal;
+    font-size: 16px;
+  }
+}

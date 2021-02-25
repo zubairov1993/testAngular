@@ -1,0 +1,33 @@
+.drop-toggle {
+  background-color: #fff;
+  border: none;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  outline: none;
+}
+.drop-show {
+  padding: 4px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #bababa;
+  z-index: 100;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.23), 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+  -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  margin-left: 1px;
+}
+.drop-show label {
+  display: block;
+  font-size: 15px;
+  cursor: pointer;
+}
+.drop-show label input {
+  vertical-align: top;
+}
+.drop-show label span {
+  display: inline-block;
+}

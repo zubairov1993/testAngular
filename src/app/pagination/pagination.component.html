@@ -1,0 +1,23 @@
+<ul
+  *ngIf="pager.pages && pager.pages.length"
+  style="
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+    padding-top: 12px;
+    padding-bottom: 162px;
+  "
+>
+  <li>
+    <i class="fas fa-chevron-left" (click)="setPage(pager.currentPage - 1)"></i>
+  </li>
+  <li *ngFor="let page of pager.pages">
+    <p (click)="setPage(page)">{{ page }}</p>
+  </li>
+  <li>
+    <i
+      (click)="setPage(pager.currentPage + 1)"
+      class="fas fa-chevron-right"
+    ></i>
+  </li>
+</ul>
