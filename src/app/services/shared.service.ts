@@ -103,6 +103,8 @@ export const users = [
   },
 ]
 
+//vrdrvssdrvsdvdsvjndsvndskvnsdkvjnrindsrvn
+//revrvjienvienriner
 
 @Injectable({
   providedIn: 'root'
@@ -110,7 +112,7 @@ export const users = [
 export class SharedService {
   public users = users
   public dataApi: Array<any>
-
+  public iniecscea
   public getDataApi() {
     fetch('https://jsonplaceholder.typicode.com/comments?_limit=10')
       .then(response => response.json())
