@@ -2,23 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { PageItemComponent } from './page-item/page-item.component';
+import { PageItemComponent } from './page-list/page-item/page-item.component';
 import { PageListComponent } from './page-list/page-list.component';
-import { PageCardComponent } from './page-card/page-card.component';
+import { PageCardComponent } from './page-list/page-card/page-card.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { SharedService } from './services/shared.service';
 import { MultiselectComponent } from './multiselect/multiselect.component';
-import { SearchPipe } from './pipes/search.pipe';
-import { SearchTitlePipe } from './pipes/searchTtile.pipe';
+import { SearchEmailPipe } from './pipes/searchEmail.pipe';
+import { SearchTitlePipe } from './pipes/searchTitle.pipe';
 import { SearchTypePipe } from './pipes/searchType.pipe';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 
 const routes: Routes = [
-  {path: 'list', component: PageListComponent},
-  { path: 'item/:id', component: PageCardComponent },
-  { path: 'pagination', component: PaginationComponent }
+  {path: '', component: PageListComponent},
+  { path: 'item/:id', component: PageCardComponent }
 ]
 
 @NgModule({
@@ -29,15 +29,16 @@ const routes: Routes = [
     PageCardComponent,
     PaginationComponent,
     MultiselectComponent,
-    SearchPipe,
+    SearchEmailPipe,
     SearchTitlePipe,
     SearchTypePipe,
-    CheckboxComponent
+    CheckboxComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

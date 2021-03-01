@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 export interface List {
-  name: string
+  value: string
   checked: boolean
 }
 
@@ -23,20 +23,20 @@ export class MultiselectComponent implements OnInit {
 
   ngOnInit(): void {
     this.list = [
-      {name :'Fort Lauderdale', checked : false},
-      {name :'Port of Los Angeles', checked : false},
-      {name :'Port Canaveral', checked : false}
+      {value :"1", checked : false},
+      {value :"2", checked : false},
+      {value :"3", checked : false},
+      {value :"4", checked : false},
     ]
   }
 
   getSelectedValue(event, value: String) {
     console.log(event);
     this.list.map(list => {
-      if (list.name == value) {
+      if (list.value == value) {
         list.checked = event.target.checked
       }
     })
-    console.log(this.list);
 
     if(event.target.checked){
       this.checkedList.push(value);

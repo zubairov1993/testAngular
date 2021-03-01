@@ -1,17 +1,19 @@
-<div>
+<div style="padding-top: 49px">
   <div (mouseleave)="showDropDown = false">
     <button class="drop-toggle btn flat" (click)="showDropDown = !showDropDown">
-      <span *ngIf="checkedList.length <= 0">Порт</span>
-      <span *ngIf="checkedList.length > 0">{{ checkedList.join(", ") }}</span>
+      <span *ngIf="checkedList.length <= 0" style="color: #888888">Порт</span>
+      <span *ngIf="checkedList.length > 0"
+        >Выбрано {{ checkedList.length }}</span
+      >
     </button>
     <div class="drop-show" *ngIf="showDropDown">
       <label *ngFor="let a of list">
         <input
           type="checkbox"
           [(ngModel)]="a.checked"
-          (change)="getSelectedValue($event, a.name)"
+          (change)="getSelectedValue($event, a.value)"
         />
-        <span>{{ a.name }}</span>
+        <p>{{ a.value }}</p>
       </label>
     </div>
   </div>

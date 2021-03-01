@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-checkbox',
@@ -6,19 +7,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent {
-  public selectedValue
-  @Input() options = Array<any>();
   @Output() toggle = new EventEmitter<any[]>();
-  constructor() { }
 
-
+  public options = [
+    { name: 'Все'},
+    { name: '1' },
+    { name: '2' },
+    { name: '3' },
+    { name: '4' }
+  ];
 
   changeRadio(event) {
-    this.selectedValue = event.target.value
-    console.log(this.selectedValue);
-    this.toggle.emit(this.selectedValue);
+    this.toggle.emit(event.target.value);
   }
-
-
-
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckboxItem } from '../checkbox/checkbox';
-import { SharedService } from '../services/shared.service';
+import { Observable } from 'rxjs';
+import { DataList, SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-page-list',
@@ -8,7 +8,7 @@ import { SharedService } from '../services/shared.service';
   styleUrls: ['./page-list.component.scss']
 })
 export class PageListComponent implements OnInit {
-  public users: Array<any>
+  public dataApi$: Observable<DataList[]>
   public pageOfItems: Array<any>;
   public checkedList: Array<any>
   public searchTitle: string
@@ -17,29 +17,17 @@ export class PageListComponent implements OnInit {
   public arg2: string
   public arg3: string
 
-
-  public userRoles = [
-    { id: 1, name: 'Barge' },
-    { id: 2, name: 'Cargo' },
-    { id: 3, name: 'High Speed Craft' },
-    { id: 4, name: 'Tug' }
-  ];
-
-
   constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
-    this.users = this.sharedService.getUserss()
-    this.sharedService.getDataApi()
+    this.dataApi$ = this.sharedService.getDataApi()
   }
 
-  onRolesChange(value) {
+  onOptionChange(value) {
     this.searchType = value
-
    }
 
-
-  onChangePage(pageOfItems: Array<any>) {
+  onChangePage(pageOfItems: DataList[]) {
     this.pageOfItems = pageOfItems;
   }
 
@@ -55,7 +43,4 @@ export class PageListComponent implements OnInit {
       this.arg3 = this.checkedList[2]
     }
   }
-
-
-
 }

@@ -1,0 +1,45 @@
+<div class="page-card" *ngIf="page$.value; else loading">
+  <div class="wrapper" *ngFor="let item of page$.value">
+    <span [routerLink]="['/']">
+      <i class="fas fa-arrow-left"></i>
+      Вернуться
+    </span>
+
+    <h2>
+      {{ item.name }}
+    </h2>
+
+    <div class="page-card__attributes">
+      <div class="page-card__attributes_item">
+        <div class="attributes_item_left">
+          <p>Тип</p>
+          <span>{{ item.postId }}</span>
+        </div>
+
+        <div class="attributes_item_right">
+          <p>Порт</p>
+          <span>{{ item.postId }}</span>
+        </div>
+      </div>
+
+      <div class="page-card__attributes_item" style="padding-top: 40px">
+        <div class="attributes_item_left">
+          <p>Вес</p>
+          <span>{{ item.postId }}</span>
+        </div>
+
+        <div class="attributes_item_right">
+          <p>Год</p>
+          <span>{{ item.postId }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="page-card__content">
+      <div class="page-card__content_body">
+        <p>Миссии</p>
+        <div>{{ item.body }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loading> Идет загрузка... </ng-template>

@@ -17,27 +17,26 @@ export class PaginationComponent implements OnInit, OnChanges {
   pager: any = {};
 
   ngOnInit() {
-    // set page if items array isn't empty
     if (this.items && this.items.length) {
       this.setPage(this.initialPage);
     }
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // reset page if items array has changed
     if (changes.items.currentValue !== changes.items.previousValue) {
       this.setPage(this.initialPage);
     }
   }
 
   private setPage(page: number) {
-    // get new pager object for specified page
     this.pager = paginate(this.items.length, page, this.pageSize, this.maxPages);
 
-    // get new page of items from items array
-    let pageOfItems = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    let shuffledArr = this.items.sort(function(){
+      return Math.random() - 0.5;
+    });
 
-    // call change page function in parent component
+    let pageOfItems = shuffledArr.slice(this.pager.startIndex, this.pager.endIndex + 1);
+
     this.changePage.emit(pageOfItems);
   }
 }

@@ -1,7 +1,8 @@
 .page-item {
-  height: 106px;
+  height: 10%;
   border-bottom: 1px solid #a5a5a5;
-  margin-bottom: 40px;
+  margin-bottom: 3.7%;
+  padding-bottom: 2.7%;
 
   &__header {
     display: flex;
@@ -21,19 +22,25 @@
 
   &__content {
     display: flex;
-    padding-top: 29px;
+    justify-content: space-between;
+    padding-top: 2.7%;
 
     &_type {
       display: flex;
-      justify-content: space-between;
-      width: 25%;
+      width: 30%;
+
+      p {
+        padding-right: 104px;
+      }
     }
 
     &_port {
       display: flex;
-      justify-content: space-between;
-      width: 25%;
-      padding-left: 20%;
+      width: 65%;
+
+      p {
+        padding-right: 104px;
+      }
     }
   }
 

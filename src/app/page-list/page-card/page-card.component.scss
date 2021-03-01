@@ -1,0 +1,66 @@
+.page-card {
+  background: #fafafa;
+  height: 100vh;
+
+  .wrapper {
+    width: 93%;
+    margin: 0 auto;
+    padding-top: 4.4%;
+  }
+
+  h2 {
+    padding-top: 2%;
+    font-weight: 500;
+    font-size: 28px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  span {
+    color: #2962ff;
+  }
+
+  i {
+    color: #2962ff;
+  }
+
+  &__attributes {
+    padding-top: 4.8%;
+    width: 37%;
+
+    &_item {
+      display: flex;
+      justify-content: space-between;
+
+      .attributes_item_left {
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .attributes_item_right {
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .page-card__content {
+    width: 37%;
+
+    &_body {
+      p {
+        padding-top: 40px;
+      }
+
+      div {
+        padding-top: 22px;
+        color: #2962ff;
+      }
+    }
+  }
+}

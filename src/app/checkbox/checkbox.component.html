@@ -1,9 +1,13 @@
-<div *ngFor="let item of options">
-  <input
-    type="radio"
-    name="fdfd"
-    value="{{ item.name }}"
-    (change)="changeRadio($event)"
-  />
-  <span>{{ item.name }}</span>
+<div class="checkbox">
+  <p>Тип</p>
+
+  <div *ngFor="let item of options">
+    <input
+      type="radio"
+      name="radio"
+      value="{{ item.name }}"
+      (change)="changeRadio($event)"
+    />
+    <span>{{ item.name }}</span>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-item',
@@ -6,13 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./page-item.component.scss']
 })
 export class PageItemComponent implements OnInit {
+  @Input('id') idProps: string
   @Input('title') titleProps: string
   @Input('email') emailProps: string
-  @Input('phone') phoneProps: string
+  @Input('number') numberProps: string
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onToPage(): void {
+    this.router.navigate([`/item/${this.idProps}`])
   }
 
 }

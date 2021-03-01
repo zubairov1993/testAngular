@@ -3,15 +3,17 @@
     <div class="wrapper">
       <h1>SpaceX Ships</h1>
       <app-page-item
-        *ngFor="let user of pageOfItems"
-        [title]="user.title"
-        [email]="user.email"
-        [phone]="user.phone"
+        *ngFor="let item of pageOfItems"
+        [id]="item.id"
+        [title]="item.name"
+        [email]="item.email"
+        [number]="item.postId"
       ></app-page-item>
       <app-pagination
         [items]="
-          users
-            | pipeSearch: arg1:arg2:arg3
+          dataApi$
+            | async
+            | pipeEmail: arg1:arg2:arg3
             | pipeTitle: searchTitle
             | pipeType: searchType
         "
@@ -22,13 +24,10 @@
   <div class="page-list__filter">
     <div class="wrapper">
       <h2>Фильтры</h2>
-      <input type="text" [(ngModel)]="searchTitle" />
+      <input type="text" [(ngModel)]="searchTitle" placeholder="Название" />
       <app-multiselect (shareCheckedList)="shareCheckedList($event)">
       </app-multiselect>
-      <app-checkbox
-        [options]="userRoles"
-        (toggle)="onRolesChange($event)"
-      ></app-checkbox>
+      <app-checkbox (toggle)="onOptionChange($event)"></app-checkbox>
     </div>
   </div>
 </div>
